@@ -1,7 +1,5 @@
 # 정렬 - K번째 수
 
-생성일: 2022년 1월 6일 오전 2:53
-
 ## 문제 설명
 
 배열 array의 i번째 숫자부터 j번째 숫자까지 자르고 정렬했을 때, k번째에 있는 수를 구하려 합니다.
@@ -31,7 +29,7 @@
 
 ## 코딩 과정
 
-처음에 splice를 사용하였더니  원래 배열인 array에도 영향을 줘서 slice를 사용하였다.
+처음에 splice를 사용하였더니 원래 배열인 array에도 영향을 줘서 slice를 사용하였다.
 
 ---
 
@@ -39,7 +37,11 @@
 
 ```jsx
 const array = [1, 5, 2, 6, 3, 7, 4];
-const commands = [[2, 5, 3], [4, 4, 1], [1, 7, 3]];
+const commands = [
+  [2, 5, 3],
+  [4, 4, 1],
+  [1, 7, 3],
+];
 //return [5,6,3]
 
 function solution(array, commands) {
@@ -48,15 +50,15 @@ function solution(array, commands) {
   let j = 0;
   let k = 0;
   const commL = commands.length;
-  for(let a = 0; a<commL; a++) {
-    i = commands[a][0]
-    j = commands[a][1]
-    k = commands[a][2]
-    const newArr = array.slice(i-1,j)
-    answer.push(newArr.sort((a,b) => a-b)[k-1])
+  for (let a = 0; a < commL; a++) {
+    i = commands[a][0];
+    j = commands[a][1];
+    k = commands[a][2];
+    const newArr = array.slice(i - 1, j);
+    answer.push(newArr.sort((a, b) => a - b)[k - 1]);
   }
   return answer;
 }
 
-console.log(solution(array, commands))
+console.log(solution(array, commands));
 ```
